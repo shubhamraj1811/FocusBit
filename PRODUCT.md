@@ -267,3 +267,68 @@ The app measures the user's behavior without trying to control it.
 ### Product Identity
 
 **A clock for your focus, not another distraction.**
+
+
+
+----
+
+```
+FOCUSBIT
+│
+├── 1. HOME
+│
+├── 2. FOCUS MODE
+│
+├── 3. HISTORY
+│
+├── 4. STATS
+│
+├── 5. SETTINGS
+│
+└── 6. CATEGORY MANAGEMENT
+```
+
+---
+
+# FocusBit map
+
+```
+                         FOCUSBIT
+                            │
+             ┌──────────────┼──────────────┐
+             │              │              │
+           HOME           HISTORY         STATS
+             │              │              │
+             │              │              │
+             │         Select Date ────────┘
+             │
+             │
+          START
+             │
+             ↓
+       ┌─────────────┐
+       │ FOCUS MODE  │
+       └─────────────┘
+          │       │
+       PAUSE     SAVE
+          │       │
+       RESUME     ↓
+          │      HOME
+          │
+          └──────┘
+
+
+HOME
+ │
+ ├── ⚙ Settings
+ │       │
+ │       ├── Categories
+ │       ├── Notifications
+ │       └── Other settings
+ │
+ └── Focus Category
+         │
+         └── Category Selector
+                 │
+                 └── Add Category
+```

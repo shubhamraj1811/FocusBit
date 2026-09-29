@@ -11,7 +11,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.redeye.focusbit.ui.screens.HomeScreen
 import com.redeye.focusbit.ui.theme.FocusBitTheme
+
+import com.redeye.focusbit.ui.screens.HomeScreen
 
 class MainActivity : ComponentActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,8 +23,7 @@ class MainActivity : ComponentActivity() {
       setContent {
          FocusBitTheme {
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-               Greeting(
-                  name = "Project",
+               HomeScreen(
                   modifier = Modifier.padding(innerPadding)
                )
             }
