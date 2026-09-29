@@ -14,6 +14,10 @@ Add settings in the same row of top bar
 
 Add streak badge - to the top bar of the row
 
+Fixed Padding and size of Streaks Pill
+
+Replaced the place holder logo for the real logo of Focus Bit
+
 
 ---
 
