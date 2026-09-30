@@ -18,6 +18,19 @@ Fixed Padding and size of Streaks Pill
 
 Replaced the place holder logo for the real logo of Focus Bit
 
+# 30-09-26
+
+Adding a centered text label, "Ready To Focus?" - HomeScreen.kt
+Fixed the Top , start , end padding of Top Bar - HomeScreen.kt
+
+Changing font - added Inter, Jetbrains Mono, Manrope
+
+Added Stopwatch Display - HomeScreen.kt
+
+Added Start Button
+
+Modified the the structuring from `box` model to `column` model
+
 
 ---
 

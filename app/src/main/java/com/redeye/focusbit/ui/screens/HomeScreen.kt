@@ -29,7 +29,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
+// === LOGO RES ===
 import com.redeye.focusbit.R
+// === FONT FAMILY ===
+import com.redeye.focusbit.ui.theme.InterFamily
+import com.redeye.focusbit.ui.theme.ManropeFamily
+import com.redeye.focusbit.ui.theme.JetBrainsMonoFamily
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
@@ -39,12 +44,17 @@ fun HomeScreen(modifier: Modifier = Modifier) {
          .fillMaxSize()
          .background(Color.Black)
    ) {
-      // ===== Padding =====
+      // ===== PADDING =====
+      // ===== TOP BAR ROW =====
       Row(
          modifier = Modifier
             .align(Alignment.TopStart)
             .fillMaxWidth()
-            .padding(24.dp),
+            .padding(
+               top = 45.dp,
+               start = 24.dp,
+               end = 24.dp
+            ),
          horizontalArrangement = Arrangement.Start,
          verticalAlignment = Alignment.CenterVertically
       ) {
@@ -61,13 +71,14 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                text = "FocusBit",
                color = Color.White,
                fontSize = 20.sp,
+               fontFamily = InterFamily,
                fontWeight = FontWeight.Bold,
                modifier = Modifier.padding(start = 10.dp),
 
             )
          }
 
-         Spacer(modifier = Modifier.width(120.dp))
+         Spacer(modifier = Modifier.width(110.dp))
 
          // ===== Streak Pill =====
          Row(
@@ -84,14 +95,15 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Icon(
                imageVector = Icons.Default.Bolt,
                contentDescription = "Streak",
-               tint = Color(0xFF2ECC71)
+               tint = Color(0xFF2ECC71),
+//               modifier = Modifier.padding(start = 0.dp)
             )
             Text(
                text = "6",
                color = Color.White,
                fontSize = 14.sp,
                fontWeight = FontWeight.Bold,
-               modifier = Modifier.padding(start = 4.dp)
+               modifier = Modifier.padding(start = 3.dp)
             )
          }
 
@@ -105,5 +117,27 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             modifier = Modifier.size(28.dp)
          )
       }
+      // ===== READY TO FOCUS =====
+      Text(
+         text = "Ready To Focus?",
+         color = Color.White,
+         fontSize = 16.sp,
+         fontFamily = ManropeFamily,
+         modifier = Modifier
+            .align(Alignment.TopCenter)
+            .padding(top = 160.dp)
+      )
+
+      // ===== STOPWATCH =====
+      Text(
+         text = "00:00:00",
+         color = Color.White,
+         fontSize = 50.sp,
+         fontWeight = FontWeight.Bold,
+         fontFamily = JetBrainsMonoFamily,
+         modifier = Modifier
+            .align(Alignment.TopCenter)
+            .padding(top = 230.dp)
+      )
    }
 }
