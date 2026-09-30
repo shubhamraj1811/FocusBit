@@ -31,6 +31,8 @@ Added Start Button
 
 Modified the the structuring from `box` model to `column` model
 
+Added Category selector - Android / Gate / DSA / Default
+
 
 ---
 
