@@ -44,6 +44,23 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.BarChart
 
+import com.redeye.focusbit.ui.theme.Primary
+import com.redeye.focusbit.ui.theme.Secondary
+import com.redeye.focusbit.ui.theme.Mute
+import com.redeye.focusbit.ui.theme.Border
+
+import com.redeye.focusbit.ui.theme.Bg
+import com.redeye.focusbit.ui.theme.Card
+
+import com.redeye.focusbit.ui.theme.TextWhite
+import com.redeye.focusbit.ui.theme.TextGray
+
+import com.redeye.focusbit.ui.theme.DotMint
+import com.redeye.focusbit.ui.theme.DotBlue
+import com.redeye.focusbit.ui.theme.DotPurple
+import com.redeye.focusbit.ui.theme.DotPink
+import com.redeye.focusbit.ui.theme.DotAmber
+
 // ===== DATA CLASS FOR CATEGORY SUMMARY =====
 data class CategorySummary(
    val name: String,
@@ -54,7 +71,7 @@ data class CategorySummary(
 // ===== NAV ITEM =====
 @Composable
 fun NavItem(icon: androidx.compose.ui.graphics.vector.ImageVector, label: String, isSelected: Boolean) {
-   val color = if (isSelected) Color(0xFF00FFBF) else Color.Gray
+   val color = if (isSelected) Primary else TextGray
    Column(horizontalAlignment = Alignment.CenterHorizontally) {
       Icon(
          imageVector = icon,
@@ -76,7 +93,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
    Box(
       modifier = modifier
          .fillMaxSize()
-         .background(Color.Black)
+         .background(Bg)
    ) {
       // ===== PADDING FROM TOP =====
       Column(
@@ -106,7 +123,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                )
                Text(
                   text = "FocusBit",
-                  color = Color.White,
+                  color = TextWhite,
                   fontSize = 20.sp,
                   fontWeight = FontWeight.Bold,
                   fontFamily = InterFamily,
@@ -121,9 +138,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Row(
                modifier = Modifier
                   .clip(RoundedCornerShape(percent = 50))
-                  .background(Color(0xFF16332B))
+                  .background(Mute)
                   .border(
-                     BorderStroke(0.8.dp, Color(0xFF2ECC71)),
+                     BorderStroke(1.dp, Primary),
                      shape = RoundedCornerShape(percent = 50)
                   )
                   .padding(horizontal = 12.dp, vertical = 4.dp),
@@ -132,11 +149,11 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                Icon(
                   imageVector = Icons.Default.Bolt,
                   contentDescription = "Streak",
-                  tint = Color(0xFF00FFBF)
+                  tint = Primary
                )
                Text(
                   text = "6",
-                  color = Color.White,
+                  color = TextWhite,
                   fontSize = 14.sp,
                   fontWeight = FontWeight.Bold,
                   modifier = Modifier.padding(start = 1.dp)
@@ -149,7 +166,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Icon(
                imageVector = Icons.Default.Settings,
                contentDescription = "Settings",
-               tint = Color.White,
+               tint = TextWhite,
                modifier = Modifier.size(30.dp)
             )
          }
@@ -160,7 +177,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
          // ===== READY TO FOCUS =====
          Text(
             text = "Ready To Focus?",
-            color = Color.Gray,
+            color = TextGray,
             fontSize = 16.sp,
             fontFamily = ManropeFamily
          )
@@ -170,7 +187,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
          // ===== STOPWATCH =====
          Text(
             text = "00:00:00",
-            color = Color.White,
+            color = TextWhite,
             fontSize = 50.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = JetBrainsMonoFamily
@@ -186,7 +203,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                .height(60.dp),
             shape = RoundedCornerShape(percent = 50),
             colors = ButtonDefaults.buttonColors(
-               containerColor = Color(0xFF00FFBF)
+               containerColor = Primary
             )
          ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
@@ -194,13 +211,13 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                Icon(
                   imageVector = Icons.Default.PlayArrow,
                   contentDescription = "Start",
-                  tint = Color.White,
+                  tint = TextWhite,
                   modifier = Modifier.size(30.dp)
                )
                // === START TEXT
                Text(
                   text = "START",
-                  color = Color.White,
+                  color = TextWhite,
                   fontSize = 20.sp,
                   fontWeight = FontWeight.Bold,
                   fontFamily = InterFamily,
@@ -218,7 +235,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                .fillMaxWidth(0.90f)
                .clip(RoundedCornerShape(percent = 50))
                .border(
-                  BorderStroke(1.dp, Color.DarkGray),
+                  BorderStroke(1.dp, TextGray),
                   shape = RoundedCornerShape(percent = 50)
                )
                .padding(horizontal = 16.dp, vertical = 12.dp),
@@ -231,20 +248,20 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                Icon(
                   imageVector = Icons.Default.GridView,
                   contentDescription = "Category",
-                  tint = Color.Gray,
+                  tint = TextGray,
                   modifier = Modifier
                      .size(20.dp)
                )
                Text(
                   text = "Focus on:",
-                  color = Color.Gray,
+                  color = TextGray,
                   fontSize = 15.sp,
                   fontFamily = ManropeFamily,
                   modifier = Modifier.padding(start = 10.dp)
                )
                Text(
                   text = "Android",
-                  color = Color.White,
+                  color = TextWhite,
                   fontSize = 15.sp,
                   fontWeight = FontWeight.SemiBold,
                   fontFamily = InterFamily,
@@ -254,7 +271,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Icon(
                imageVector = Icons.Default.KeyboardArrowDown,
                contentDescription = "Select category",
-               tint = Color.Gray
+               tint = TextGray
             )
          }
 
@@ -265,12 +282,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             modifier = Modifier
                .fillMaxWidth()
                .clip(RoundedCornerShape(16.dp))
-               .background(Color(0xFF121212))
+               .background(Card)
                .padding(20.dp)
          ) {
             Text(
                text = "Today",
-               color = Color.Gray,
+               color = TextGray,
                fontSize = 14.sp,
                fontFamily = ManropeFamily
             )
@@ -279,7 +296,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
             Text(
                text = "6h 30m",
-               color = Color.White,
+               color = TextWhite,
                fontSize = 28.sp,
                fontWeight = FontWeight.Bold,
                fontFamily = InterFamily
@@ -288,9 +305,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
             Spacer(modifier = Modifier.height(14.dp))
 
             val categoryBreakdown = listOf(
-               CategorySummary("Android", "1h 30m", Color(0xFF2ECC71)),
-               CategorySummary("DSA", "3h 00m", Color(0xFFE040FB)),
-               CategorySummary("GATE", "2h 00m", Color(0xFF448AFF))
+               CategorySummary("Android", "1h 30m", DotMint),
+               CategorySummary("DSA", "3h 00m", DotPurple),
+               CategorySummary("GATE", "2h 00m", DotPink)
             )
 
             categoryBreakdown.forEach { category ->
@@ -310,7 +327,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                      )
                      Text(
                         text = category.name,
-                        color = Color.White,
+                        color = TextWhite,
                         fontSize = 14.sp,
                         fontFamily = ManropeFamily,
                         modifier = Modifier.padding(start = 8.dp)
@@ -319,7 +336,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 
                   Text(
                      text = category.duration,
-                     color = Color.Gray,
+                     color = TextGray,
                      fontSize = 14.sp,
                      fontFamily = InterFamily
                   )
