@@ -33,6 +33,10 @@ Modified the the structuring from `box` model to `column` model
 
 Added Category selector - Android / Gate / DSA / Default
 
+Added Summary Card
+
+Added bottom navigation
+
 
 ---
 
