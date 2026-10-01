@@ -37,6 +37,13 @@ Added Summary Card
 
 Added bottom navigation
 
+Added New Color Palatte
+
+# 1-10-26
+
+Added the androidx.navigation:navigation-compose dependency to the project.  
+create ui/navigation/FocusBitNavHost.kt
+
 
 ---
 
