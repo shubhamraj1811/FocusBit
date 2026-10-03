@@ -42,7 +42,18 @@ Added New Color Palatte
 # 1-10-26
 
 Added the androidx.navigation:navigation-compose dependency to the project.  
-create ui/navigation/FocusBitNavHost.kt
+create ui/navigation/FocusBitNavHost.kt  
+
+Create and build empty History screen   
+Wire History Screen in FocusBitNavHost  
+
+Create Stat Screen   
+And wire it to the NavHost Temporarily  
+
+encountered a navigation bug - on multi clicking a screen, have to swipe multiple times to come back to Home screen
+
+
+
 
 
 ---

@@ -13,8 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.redeye.focusbit.ui.screens.HomeScreen
 import com.redeye.focusbit.ui.theme.FocusBitTheme
-
-import com.redeye.focusbit.ui.screens.HomeScreen
+import com.redeye.focusbit.ui.navigation.FocusBitNavHost
 
 class MainActivity : ComponentActivity() {
    override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +21,9 @@ class MainActivity : ComponentActivity() {
       enableEdgeToEdge()
       setContent {
          FocusBitTheme {
+            //
             Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-               HomeScreen(
-                  modifier = Modifier.padding(innerPadding)
-               )
+               FocusBitNavHost()
             }
          }
       }

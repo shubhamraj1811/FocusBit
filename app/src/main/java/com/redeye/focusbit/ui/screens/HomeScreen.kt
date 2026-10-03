@@ -43,53 +43,29 @@ import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.BarChart
-
 import com.redeye.focusbit.ui.theme.Primary
 import com.redeye.focusbit.ui.theme.Secondary
 import com.redeye.focusbit.ui.theme.Mute
 import com.redeye.focusbit.ui.theme.Border
-
 import com.redeye.focusbit.ui.theme.Bg
 import com.redeye.focusbit.ui.theme.Card
-
 import com.redeye.focusbit.ui.theme.TextWhite
 import com.redeye.focusbit.ui.theme.TextGray
-
 import com.redeye.focusbit.ui.theme.DotMint
 import com.redeye.focusbit.ui.theme.DotBlue
 import com.redeye.focusbit.ui.theme.DotPurple
 import com.redeye.focusbit.ui.theme.DotPink
 import com.redeye.focusbit.ui.theme.DotAmber
 
-// ===== DATA CLASS FOR CATEGORY SUMMARY =====
-data class CategorySummary(
-   val name: String,
-   val duration: String,
-   val color: Color
-)
-
-// ===== NAV ITEM =====
-@Composable
-fun NavItem(icon: androidx.compose.ui.graphics.vector.ImageVector, label: String, isSelected: Boolean) {
-   val color = if (isSelected) Primary else TextGray
-   Column(horizontalAlignment = Alignment.CenterHorizontally) {
-      Icon(
-         imageVector = icon,
-         contentDescription = label,
-         tint = color
-      )
-      Text(
-         text = label,
-         color = color,
-         fontSize = 12.sp,
-         fontFamily = ManropeFamily,
-         modifier = Modifier.padding(top = 4.dp)
-      )
-   }
-}
+import androidx.compose.foundation.clickable
 
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier) {
+fun HomeScreen(
+   modifier: Modifier = Modifier,
+   onNavigateToHistory: () -> Unit = {},
+   onNavigateToStats: () -> Unit = {},
+   onNavigateToSettings: () -> Unit = {}
+   ) {
    Box(
       modifier = modifier
          .fillMaxSize()
@@ -167,7 +143,9 @@ fun HomeScreen(modifier: Modifier = Modifier) {
                imageVector = Icons.Default.Settings,
                contentDescription = "Settings",
                tint = TextWhite,
-               modifier = Modifier.size(30.dp)
+               modifier = Modifier
+                  .size(30.dp)
+                  .clickable{ onNavigateToSettings() }
             )
          }
 
@@ -345,7 +323,7 @@ fun HomeScreen(modifier: Modifier = Modifier) {
          }
          //
       }
-      // ===== NAV BAR =====
+      // ========= NAV BAR =========
       Row(
          modifier = Modifier
             .align(Alignment.BottomCenter)
@@ -357,5 +335,52 @@ fun HomeScreen(modifier: Modifier = Modifier) {
          NavItem(icon = Icons.Default.History, label = "History", isSelected = false)
          NavItem(icon = Icons.Default.BarChart, label = "Stats", isSelected = false)
       }
+
+      // ============== Temp =======================================
+      Text(
+         text = "[DEBUG] Go to History",
+         color = TextWhite,
+         modifier = Modifier
+            .align(Alignment.Center)
+            .padding(top = 300.dp)
+            .clickable { onNavigateToHistory() }
+      )
+
+      Text(
+         text = "[DEBUG] Go to Stats",
+         color = TextWhite,
+         modifier = Modifier
+            .align(Alignment.Center)
+            .padding(top = 340.dp)
+            .clickable { onNavigateToStats() }
+      )
+      // ============== Temp =======================================
+   }
+}
+
+// ===== DATA CLASS FOR CATEGORY SUMMARY =====
+data class CategorySummary(
+   val name: String,
+   val duration: String,
+   val color: Color
+)
+
+// ===== NAV ITEM =====
+@Composable
+fun NavItem(icon: androidx.compose.ui.graphics.vector.ImageVector, label: String, isSelected: Boolean) {
+   val color = if (isSelected) Primary else TextGray
+   Column(horizontalAlignment = Alignment.CenterHorizontally) {
+      Icon(
+         imageVector = icon,
+         contentDescription = label,
+         tint = color
+      )
+      Text(
+         text = label,
+         color = color,
+         fontSize = 12.sp,
+         fontFamily = ManropeFamily,
+         modifier = Modifier.padding(top = 4.dp)
+      )
    }
 }
